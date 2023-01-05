@@ -179,6 +179,9 @@ namespace Serialization
 
 	void Save(const std::string& a_savePath)
 	{
+		// skip saving
+		return;
+
 		const auto path = fmt::format(filePath, a_savePath);
 
 		std::ofstream ofs(path);
@@ -227,6 +230,9 @@ namespace Serialization
 
 	void ClearUnreferencedSlotData()
 	{
+		// skip saving
+		return;
+
 		constexpr auto get_save_directory = []() -> std::optional<std::filesystem::path> {
 			wchar_t* buffer{ nullptr };
 			const auto result = SHGetKnownFolderPath(FOLDERID_Documents, KF_FLAG_DEFAULT, nullptr, std::addressof(buffer));
